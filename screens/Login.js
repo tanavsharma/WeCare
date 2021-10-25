@@ -30,7 +30,7 @@ import{Octicons, Ionicons, Fontisto} from '@expo/vector-icons';
 
 const {buttonColors, blackColor, backgroundApp} = Colors;
 
-const Login = () =>{
+const Login = ({navigation}) =>{
     const [hidePassword, setHidePassword] = useState(true);
 
     return(
@@ -44,6 +44,7 @@ const Login = () =>{
                     initialValues={{email:'', password:''}}
                     onSubmit={(values) =>{
                         console.log(values);
+                        navigation.navigate("Profile");
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values})=>(
                     <StyledFormArea>
@@ -56,7 +57,7 @@ const Login = () =>{
                             onChangeText={handleChange('email')}
                             onBlur={handleBlur('email')}
                             value={values.email}
-                            keyboardType="email"
+                            keyboardType="email-address"
                         
                         />
 
@@ -73,7 +74,6 @@ const Login = () =>{
                             hidePassword={hidePassword}
                             setHidePassword={setHidePassword}                      
                         />
-                        <MsgBox>.......</MsgBox>
                         <StyledButton onPress={handleSubmit}>
                             <ButtonText> Login</ButtonText>
                         </StyledButton>
@@ -84,7 +84,7 @@ const Login = () =>{
                         </StyledButton>
                         <ExtraView>
                             <ExtraText>Don't have an account yet? </ExtraText>
-                            <TextLink>
+                            <TextLink onPress={() => navigation.navigate("Signup")}>
                                 <TextLinkContent>Signup!</TextLinkContent>
                             </TextLink>
                         </ExtraView>

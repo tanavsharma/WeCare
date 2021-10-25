@@ -52,7 +52,8 @@ export const StyledTextInput = styled.TextInput`
     padding: 15px;
     padding-left: 55px;
     padding-right: 55px;
-    border-radius: 5px;
+    border-radius: 55px;
+    border: 1px;
     font-size: 16px;
     height: 60px;
     margin-vertical: 3px;
@@ -70,14 +71,14 @@ export const StyledInputTheLabel = styled.Text`
 
 export const LeftIcon = styled.TouchableOpacity`
     left: 15px;
-    top: 38px;
+    top: 28px;
     position: absolute;
     z-index:1;
 `;
 
 export const RightIcon = styled.TouchableOpacity`
     right: 15px;
-    top: 38px;
+    top: 28px;
     position: absolute;
     z-index:1;
 `;
@@ -87,7 +88,8 @@ export const StyledButton = styled.TouchableOpacity`
     background-color: ${logoColor};
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
+    border-radius: 55px;
+    border: 1px;
     margin-vertical: 5px;
     height: 60px;
 
@@ -108,8 +110,10 @@ export const ButtonText = styled.Text`
 `; 
 
 export const MsgBox = styled.Text`
+    padding-top: 40px;
+    padding-bottom: 20px;
     text-align: center;
-    font-size: 13px;
+    font-size: 15px;
 `;
 
 export const Line = styled.View`
@@ -142,3 +146,47 @@ export const TextLinkContent = styled.Text`
     color: ${blackColor};
     font-size: 15px;
 `;
+
+
+export const StyledProfileButtonOne = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${backgroundApp};
+    justify-content: center;
+    align-items: center;
+    border-radius: 55px;
+    border: 1px;
+    margin-vertical: 5px;
+    height: 60px;
+
+`;
+
+export const StyledProfileButtonTwo = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${backgroundApp};
+    justify-content: center;
+    align-items: center;
+    border-radius: 55px;
+    border: 1px;
+    border-color: ${logoColor}
+    margin-vertical: 5px;
+    height: 60px;
+
+`;
+
+export const ButtonTextOne = styled.Text`
+    color: ${blackColor};
+    font-size: 16px;
+
+      ${(props) => props.google == true && `
+        padding: 5px;
+    `}
+`; 
+export const ButtonTextTwo = styled.Text`
+    color: ${logoColor};
+    font-weight: bold;
+    font-size: 16px;
+
+      ${(props) => props.google == true && `
+        padding: 5px;
+    `}
+`; 
