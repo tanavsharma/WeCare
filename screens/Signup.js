@@ -41,12 +41,22 @@ const Signup = () =>{
                 <PageTitle>WeCare</PageTitle>
 
                 <Formik
-                    initialValues={{email:'', password:''}}
+                    initialValues={{email:'', password:'', fullname:''}}
                     onSubmit={(values) =>{
                         console.log(values);
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values})=>(
                     <StyledFormArea>
+
+                        <MyTextInput 
+                            label="Full Name"
+                            icon="person"
+                            placeholder="John Doe"
+                            placeholderTextColor={blackColor}
+                            onChangeText={handleChange('fullname')}
+                            onBlur={handleBlur('fullname')}
+                            value={values.fullname}
+                        />
 
                         <MyTextInput 
                             label="Email Address"
@@ -59,6 +69,19 @@ const Signup = () =>{
                             keyboardType="email"
                         
                         />
+
+                               <MyTextInput 
+                            label="Confirm Email Address"
+                            icon="mail"
+                            placeholder="johndoe@gmail.com"
+                            placeholderTextColor={blackColor}
+                            onChangeText={handleChange('email')}
+                            onBlur={handleBlur('email')}
+                            value={values.email}
+                            keyboardType="email"
+                        
+                        />
+
 
                         <MyTextInput 
                             label="Password"
@@ -73,19 +96,29 @@ const Signup = () =>{
                             hidePassword={hidePassword}
                             setHidePassword={setHidePassword}                      
                         />
+
+                        <MyTextInput 
+                            label="Confirm Password"
+                            icon="lock"
+                            placeholder="********"
+                            placeholderTextColor={blackColor}
+                            onChangeText={handleChange('password')}
+                            onBlur={handleBlur('password')}
+                            value={values.password}
+                            secureTextEntry={hidePassword}
+                            isPassword = {true}
+                            hidePassword={hidePassword}
+                            setHidePassword={setHidePassword}                      
+                        />
                         <MsgBox>.......</MsgBox>
                         <StyledButton onPress={handleSubmit}>
-                            <ButtonText> Login</ButtonText>
+                            <ButtonText> Sign Up </ButtonText>
                         </StyledButton>
                         <Line />
-                        <StyledButton google={true} onPress={handleSubmit}>
-                            <Fontisto  name="google" color={backgroundApp} size={25} /> 
-                            <ButtonText google={true}>Sign in with Google</ButtonText>
-                        </StyledButton>
                         <ExtraView>
-                            <ExtraText>Don't have an account yet? </ExtraText>
+                            <ExtraText>Already have an account? </ExtraText>
                             <TextLink>
-                                <TextLinkContent>Signup!</TextLinkContent>
+                                <TextLinkContent>Login!</TextLinkContent>
                             </TextLink>
                         </ExtraView>
 

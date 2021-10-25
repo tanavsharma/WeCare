@@ -84,14 +84,61 @@ export const RightIcon = styled.TouchableOpacity`
 
 export const StyledButton = styled.TouchableOpacity`
     padding: 15px;
-    background-color: ${buttonColors};
+    background-color: ${logoColor};
     justify-content: center;
+    align-items: center;
     border-radius: 5px;
     margin-vertical: 5px;
     height: 60px;
+
+    ${(props) => props.google == true && `
+        background-color: ${logoColor};
+        flex-direction: row;
+        justify-content: center;
+    `}
 `;
 
 export const ButtonText = styled.Text`
     color: ${blackColor};
     font-size: 16px;
+
+      ${(props) => props.google == true && `
+        padding: 5px;
+    `}
+`; 
+
+export const MsgBox = styled.Text`
+    text-align: center;
+    font-size: 13px;
+`;
+
+export const Line = styled.View`
+    height: 1px;
+    width: 100%;
+    background-color: ${blackColor};
+    margin-vertical: 10px;
+`;
+
+export const ExtraView = styled.View`
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+`;
+
+export const ExtraText = styled.Text`
+    justify-content: center;
+    align-content: center;
+    color: ${blackColor};
+    font-size: 15px;
+`;
+
+export const TextLink = styled.TouchableOpacity`
+    justify-content: center;
+    align-items: center;
+`;
+
+export const TextLinkContent = styled.Text`
+    color: ${blackColor};
+    font-size: 15px;
 `;

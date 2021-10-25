@@ -14,13 +14,21 @@ import {
     StyledInputTheLabel,
     StyledTextInput,
     RightIcon,
-    Colors
+    Colors,
+    StyledButton,
+    ButtonText,
+    MsgBox,
+    Line,
+    ExtraText,
+    ExtraView,
+    TextLink,
+    TextLinkContent
 } from './../components/styles';
 
 import {View} from 'react-native';
-import{Octicons, Ionicons} from '@expo/vector-icons';
+import{Octicons, Ionicons, Fontisto} from '@expo/vector-icons';
 
-const {buttonColors, blackColor} = Colors;
+const {buttonColors, blackColor, backgroundApp} = Colors;
 
 const Login = () =>{
     const [hidePassword, setHidePassword] = useState(true);
@@ -65,10 +73,24 @@ const Login = () =>{
                             hidePassword={hidePassword}
                             setHidePassword={setHidePassword}                      
                         />
+                        <MsgBox>.......</MsgBox>
+                        <StyledButton onPress={handleSubmit}>
+                            <ButtonText> Login</ButtonText>
+                        </StyledButton>
+                        <Line />
+                        <StyledButton google={true} onPress={handleSubmit}>
+                            <Fontisto  name="google" color={backgroundApp} size={25} /> 
+                            <ButtonText google={true}>Sign in with Google</ButtonText>
+                        </StyledButton>
+                        <ExtraView>
+                            <ExtraText>Don't have an account yet? </ExtraText>
+                            <TextLink>
+                                <TextLinkContent>Signup!</TextLinkContent>
+                            </TextLink>
+                        </ExtraView>
 
-                    
-
-                    </StyledFormArea>)}
+                    </StyledFormArea>
+                    )}
                 </Formik>
             </InnerContainer>
         </StyledContainer>
