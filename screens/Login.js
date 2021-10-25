@@ -23,6 +23,8 @@ import{Octicons, Ionicons} from '@expo/vector-icons';
 const {buttonColors, blackColor} = Colors;
 
 const Login = () =>{
+    const [hidePassword, setHidePassword] = useState(true);
+
     return(
         <StyledContainer>
             <StatusBar style="dark"/>
@@ -58,9 +60,10 @@ const Login = () =>{
                             onChangeText={handleChange('password')}
                             onBlur={handleBlur('password')}
                             value={values.password}
-                            secureTextEntry={true}
+                            secureTextEntry={hidePassword}
                             isPassword = {true}
-                        
+                            hidePassword={hidePassword}
+                            setHidePassword={setHidePassword}                      
                         />
 
                     
@@ -72,7 +75,7 @@ const Login = () =>{
     );
 }
 
-const MyTextInput = ({label, icon, isPassword, ...props}) => {
+const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ...props}) => {
     return(
         <View>
             <LeftIcon>
@@ -83,7 +86,8 @@ const MyTextInput = ({label, icon, isPassword, ...props}) => {
             <StyledTextInput {...props} />
             {isPassword && (
                 <RightIcon>
-                    <Ionicons size={30} color={buttonColors} />
+                    <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={buttonColors} />
+    
                 </RightIcon>
             )}
         </View>
