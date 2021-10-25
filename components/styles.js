@@ -1,4 +1,4 @@
-import styled from 'styled-components/';
+import styled from 'styled-components';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import Constants from 'expo-constants'
 
@@ -13,7 +13,7 @@ export const Colors = {
     blackColor: '#000000',
 };
 
-const {backgroundApp, logoColor, buttonColors, accountColor, accentBackground, blackColor} = Colors;
+const {backgroundApp, logoColor, buttonColors, accentColors, accentBackground, blackColor} = Colors;
 
 export const StyledContainer = styled.View`
     flex: 1;
@@ -48,7 +48,7 @@ export const StyledFormArea  = styled.View`
 `;
 
 export const StyledTextInput = styled.TextInput`
-    background-color: ${backgroundApp};
+    background-color: ${accentBackground};
     padding: 15px;
     padding-left: 55px;
     padding-right: 55px;
@@ -57,12 +57,12 @@ export const StyledTextInput = styled.TextInput`
     height: 60px;
     margin-vertical: 3px;
     margin-bottom: 10px;
-    color: ${backgroundApp};
+    color: ${blackColor};
 `;
 
-export const StyledInputLabel = styled.Text`
-    color: ${logoColor}
-    font-size: 13px
+export const StyledInputTheLabel = styled.Text`
+    color: ${logoColor};
+    font-size: 13px;
     text-align: left;
 `;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 
 import {Formik} from 'formik';
@@ -11,14 +11,14 @@ import {
     SubTitle,
     StyledFormArea,
     LeftIcon,
-    StyledInputLabel,
+    StyledInputTheLabel,
     StyledTextInput,
     RightIcon,
     Colors
 } from './../components/styles';
 
 import {View} from 'react-native';
-import{Octicons} from '@expo/vector-icons';
+import{Octicons, Ionicons} from '@expo/vector-icons';
 
 const {buttonColors, blackColor} = Colors;
 
@@ -38,7 +38,32 @@ const Login = () =>{
                 >{({handleChange, handleBlur, handleSubmit, values})=>(
                     <StyledFormArea>
 
-                    <MyTextInput />
+                        <MyTextInput 
+                            label="Email Address"
+                            icon="mail"
+                            placeholder="johndoe@gmail.com"
+                            placeholderTextColor={blackColor}
+                            onChangeText={handleChange('email')}
+                            onBlur={handleBlur('email')}
+                            value={values.email}
+                            keyboardType="email"
+                        
+                        />
+
+                        <MyTextInput 
+                            label="Password"
+                            icon="lock"
+                            placeholder="********"
+                            placeholderTextColor={blackColor}
+                            onChangeText={handleChange('password')}
+                            onBlur={handleBlur('password')}
+                            value={values.password}
+                            secureTextEntry={true}
+                            isPassword = {true}
+                        
+                        />
+
+                    
 
                     </StyledFormArea>)}
                 </Formik>
@@ -47,15 +72,20 @@ const Login = () =>{
     );
 }
 
-const MyTextInput = ({label, icon, ...props}) => {
+const MyTextInput = ({label, icon, isPassword, ...props}) => {
     return(
         <View>
             <LeftIcon>
                 <Octicons name={icon} size={30} color={buttonColors} />
             </LeftIcon>
 
-            <styledInputLabel>{label}</styledInputLabel>
+            <StyledInputTheLabel>{label}</StyledInputTheLabel>
             <StyledTextInput {...props} />
+            {isPassword && (
+                <RightIcon>
+                    <Ionicons size={30} color={buttonColors} />
+                </RightIcon>
+            )}
         </View>
     )
 
