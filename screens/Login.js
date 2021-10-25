@@ -85,7 +85,7 @@ const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ..
             <StyledInputTheLabel>{label}</StyledInputTheLabel>
             <StyledTextInput {...props} />
             {isPassword && (
-                <RightIcon>
+                <RightIcon onPress={() => setHidePassword(!hidePassword)}>
                     <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={buttonColors} />
     
                 </RightIcon>
