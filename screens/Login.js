@@ -78,16 +78,6 @@ const Login = ({navigation}) =>{
                             <ButtonText> Login</ButtonText>
                         </StyledButton>
                         <Line />
-                        <StyledButton google={true} onPress={handleSubmit}>
-                            <Fontisto  name="google" color={backgroundApp} size={25} /> 
-                            <ButtonText google={true}>Sign in with Google</ButtonText>
-                        </StyledButton>
-                        <ExtraView>
-                            <ExtraText>Don't have an account yet? </ExtraText>
-                            <TextLink onPress={() => navigation.navigate("Signup")}>
-                                <TextLinkContent>Signup!</TextLinkContent>
-                            </TextLink>
-                        </ExtraView>
 
                     </StyledFormArea>
                     )}

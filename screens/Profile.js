@@ -34,7 +34,7 @@ import{Octicons, Ionicons, Fontisto} from '@expo/vector-icons';
 
 const {buttonColors, blackColor, backgroundApp} = Colors;
 
-const Profile = () =>{
+const Profile = ({navigation}) =>{
     const [hidePassword, setHidePassword] = useState(true);
 
     return(
@@ -44,35 +44,29 @@ const Profile = () =>{
                 <SubTitle>You are logged into:</SubTitle>
                 <PageTitle>WeCare</PageTitle>
 
-                <Formik
-                    initialValues={{email:'', password:'', fullname:''}}
-                    onSubmit={(values) =>{
-                        console.log(values);
-                    }}
-                >{({handleChange, handleBlur, handleSubmit, values})=>(
                     <StyledFormArea>
 
                         <MsgBox>What do you want to do?</MsgBox>
-                        <StyledProfileButtonOne onPress={handleSubmit}>
-                            <ButtonTextOne> Check all patients</ButtonTextOne>
+                        <StyledProfileButtonOne onPress={() => navigation.navigate("AllPatients")}>
+                            <ButtonTextOne > Check all patients</ButtonTextOne>
                         </StyledProfileButtonOne>
 
-                        <StyledProfileButtonOne onPress={handleSubmit}>
+                        <StyledProfileButtonOne>
                             <ButtonTextOne> Check critical patients</ButtonTextOne>
                         </StyledProfileButtonOne>
                         <Line />
-                        <StyledProfileButtonTwo onPress={handleSubmit}>
+                        <StyledProfileButtonTwo >
                             <ButtonTextTwo> Add a new patient</ButtonTextTwo>
                         </StyledProfileButtonTwo>
 
-                        <StyledProfileButtonTwo onPress={handleSubmit}>
+                        <StyledProfileButtonTwo >
                             <ButtonTextTwo> Add/edit medical data</ButtonTextTwo>
                         </StyledProfileButtonTwo>
                         
 
                     </StyledFormArea>
-                    )}
-                </Formik>
+                    
+                
             </InnerContainer>
         </StyledContainer>
     );
